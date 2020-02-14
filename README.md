@@ -12,15 +12,14 @@ To build a deep-learning based image-similarity model, which given a query image
 
 Query Image:- 
 
-![im1](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/query.JPEG)
+![im1](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-A.jpg)
 
 Results :
 
-![im2](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/result1.JPEG)
-![im2](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/result2.JPEG)
-![im2](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/result3.JPEG)
-![im2](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/result4.JPEG)
-![im2](https://github.com/SathwikTejaswi/Deep-Image-Ranking/blob/master/sample_outputs/example1/result5.JPEG)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-B.jpg)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-D.jpg)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-E.jpg)
+
 
 ## Utility
 
