@@ -12,13 +12,13 @@ To build a deep-learning based image-similarity model, which given a query image
 
 Query Image:- 
 
-![im1](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-A.jpg)
+![im1](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/mountain-A.jpg)
 
 Results :
 
-![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-B.jpg)
-![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-D.jpg)
-![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/mountain-E.jpg)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/mountain-B.jpg)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/mountain-D.jpg)
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/mountain-E.jpg)
 
 
 ## Utility
