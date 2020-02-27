@@ -44,11 +44,17 @@ While analysing images recovered from a crime scene, A law enforcement official 
 - Initial results -> faster_rcnn better than ssd but training is very slow.
 - Dan said that he will be able to provide the __school uniform dataset__ only in __early March__. So, after discussing this with Brian,   decided to switch to working on building an image similairty model.
 
-**Week of 2/13/20 - 2/20/20 : 4**
+**Week of 2/13/20 - 2/20/20 : 3**
 
 - Explored various approaches for finding image similarity.
 - Adopted an implementation of DeepRanking to find similarity between images.
 - Built an image based query retrieval engine to get the top 5 best images. 
+
+**Week of 2/20/20 - 2/27/20 : 4**
+
+- Improved the results by including the knowledge about an image's scene from Vivek’s scene classification model.
+- Search images only from the directory corresponding to the scene.
+- Worked on improving the query performance for image retrieval by pre-calculating the embeddings for images and only computing distances during runtime.
 
 **Week of 2/27/20 - 3/5/20 : 5**
 
