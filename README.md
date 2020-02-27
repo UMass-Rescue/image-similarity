@@ -46,6 +46,10 @@ While analysing images recovered from a crime scene, A law enforcement official 
 
 **Week of 2/13/20 - 2/20/20 : 4**
 
+- Explored various approaches for finding image similarity.
+- Adopted an implementation of DeepRanking to find similarity between images.
+- Built an image based query retrieval engine to get the top 5 best images. 
+
 **Week of 2/27/20 - 3/5/20 : 5**
 
 **Week of 3/5/20 - 3/12/20 : 6**
