@@ -58,6 +58,10 @@ While analysing images recovered from a crime scene, A law enforcement official 
 
 **Week of 2/27/20 - 3/5/20 : 5**
 
+- Restructured the code and made it modular, such that it can work with any of the model that I try in the future without much changes.
+- Packaged my code and created a wheel file so that it can be shipped to Dan.
+
+
 **Week of 3/5/20 - 3/12/20 : 6**
 
 **Week of 3/12/20 - 3/19/20 : 7**
