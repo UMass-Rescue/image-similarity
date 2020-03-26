@@ -90,10 +90,12 @@ def getEmbedding(model_name, image_name):
 
     image1 = load_img(image_name)
     image1 = img_to_array(image1).astype("float64")
+    print(image1.shape)
     image1 = transform.resize(image1, (224, 224))
+    print(image1.shape)
     image1 *= 1. / 255
     image1 = np.expand_dims(image1, axis = 0)
-
+    print(image1.shape)
     embedding1 = model.predict([image1, image1, image1])[0]
 
     return embedding1

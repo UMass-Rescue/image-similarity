@@ -3,20 +3,42 @@ from .Embedding import getEmbedding
 import os
 import json
 import heapq
+import mysql.connector
 
-def getSimilarImages(model_name, query_image_path, img_directory, K):
+
+def getSimilarImages(model_name, query_image_path, img_directory, mydb, K):
     
-    query_image_embedding = getEmbedding(model_name, query_image_path).tolist()    
-    class_dir = get_image_scene(query_image_path)
-    srch_dir = os.path.join(img_directory, class_dir)
-    embedding_file_path = os.path.join(srch_dir, "embeddings.json")
-    with open(embedding_file_path,'r') as f:
-        embedding_dict = json.load(f)
+    
+    try:
+        scene_type = get_image_scene(query_image_path)
+    except:
+        scene_type = ''
+
     distance = {}
+    sql = "SELECT * FROM metadata where scene_type = %s"
+    val = (scene_type, )
+    mycursor = mydb.cursor()
+    mycursor.execute(sql,val)
+    resultset = mycursor.fetchall()
+    embedding_dict = dict()
+    isEmbeddingPresent = False
+    for result in resultset:
+        imagePath = result[1]
+        if imagePath == query_image_path:
+            isEmbeddingPresent = True
+        embedStr = result[2]
+        embedding_dict[imagePath] = json.loads(embedStr)
+    
+    if not isEmbeddingPresent:
+        query_image_embedding = getEmbedding(model_name, query_image_path).tolist()
+    else:
+        query_image_embedding = embedding_dict[query_image_path]
+        del embedding_dict[query_image_path]
+
     for img in embedding_dict:
         candidate_embedding = embedding_dict[img]
         distance[img] = sum([(query_image_embedding[idx] - candidate_embedding[idx])**2 for idx in range(len(query_image_embedding))])**(0.5)
+    
     heap = [(value, key) for key,value in distance.items()]
     largestK = heapq.nsmallest(K, heap)
-    largestK = [os.path.join(srch_dir, key) for value, key in largestK]
     return largestK
