@@ -63,10 +63,19 @@ While analysing images recovered from a crime scene, A law enforcement official 
 
 
 **Week of 3/5/20 - 3/12/20 : 6**
+ 
+*PASS WEEK*
 
 **Week of 3/12/20 - 3/19/20 : 7**
 
+*SPRING BREAK*
+
 **Week of 3/19/20 - 3/26/20 : 8**
+
+- Implemented dynamic batching to generate embeddings.
+- Implemented logic to store the image embeddings in MySQL database as well to retireve the top K similar images from the database to answer the search query.
+- Ran the forward pass to generate embeddings of 36.5K images obtained from Places dataset, and stored in a MySQL database.
+
 
 **Week of 3/26/20 - 4/2/20 : 9**
 
