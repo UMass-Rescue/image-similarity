@@ -1,0 +1,10 @@
+setup.py
+image_similarity/Embedding.py
+image_similarity/ImageSimilarity.py
+image_similarity/SceneClassification.py
+image_similarity/__init__.py
+image_similarity.egg-info/PKG-INFO
+image_similarity.egg-info/SOURCES.txt
+image_similarity.egg-info/dependency_links.txt
+image_similarity.egg-info/not-zip-safe
+image_similarity.egg-info/top_level.txt

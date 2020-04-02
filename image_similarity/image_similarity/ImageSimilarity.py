@@ -3,23 +3,21 @@ from .Embedding import getEmbedding
 import os
 import json
 import heapq
-import mysql.connector
-
+import sqlite3
 
 def getSimilarImages(model_name, query_image_path, img_directory, mydb, K):
-    
     
     try:
         scene_type = get_image_scene(query_image_path)
     except:
         scene_type = ''
-
+    
+    conn = sqlite3.connect(mydb)
     distance = {}
-    sql = "SELECT * FROM metadata where scene_type = %s"
+    sql = "SELECT * FROM metadata where scene_type = (?)"
     val = (scene_type, )
-    mycursor = mydb.cursor()
-    mycursor.execute(sql,val)
-    resultset = mycursor.fetchall()
+    cursor = conn.execute(sql,val)
+    resultset = cursor.fetchall()
     embedding_dict = dict()
     isEmbeddingPresent = False
     for result in resultset:
@@ -41,4 +39,6 @@ def getSimilarImages(model_name, query_image_path, img_directory, mydb, K):
     
     heap = [(value, key) for key,value in distance.items()]
     largestK = heapq.nsmallest(K, heap)
+    conn.commit()
+    conn.close()
     return largestK

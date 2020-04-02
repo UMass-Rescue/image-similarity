@@ -14,22 +14,24 @@ import os
 import argparse
 import json
 import gc
-import mysql.connector
 from .SceneClassification import get_image_scene
+import sqlite3
 
 def loadData(model_name, img_directory, mydb):
     
     images = [os.path.join(img_directory,name) for name in os.listdir(img_directory) if os.path.isfile(os.path.join(img_directory, name)) and (name.endswith(".jpg") or name.endswith(".png"))]
-    
     N = len(images)
     batch_size = N
     canAlloc = False
+    conn = sqlite3.connect(mydb)
     while not canAlloc:    
         try:
             data = np.empty((batch_size, 224, 224, 3), dtype=np.float64)
             batch_len = N // batch_size + 1
             image_index = 0
             # iterate over batches
+            print("Maximally allocated batch size is ", batch_size)
+            print("Batch length is ", batch_len)
             for i in range(batch_len):
                 if i == batch_len - 1:
                     batch_size = N - image_index
@@ -56,18 +58,17 @@ def loadData(model_name, img_directory, mydb):
                     try:
                         scene_type = get_image_scene(imagePath)
                     except:
-                        #print("PATH IS ",imagePath)
+                        #print("Scene classification error for ",imagePath)
                         pass
                     val = (imagePath, embedStr, scene_type)
                     values.append(val)
-                mycursor = mydb.cursor()
-                sql = "INSERT INTO metadata (image_path, embedding, scene_type) values (%s,%s,%s)"
-                mycursor.executemany(sql, values)
-                mydb.commit()
+                sql = "INSERT INTO metadata (image_path, embedding, scene_type) values (?,?,?)"
+                conn.executemany(sql, values)
+                conn.commit()
             canAlloc = True
         except MemoryError:
             batch_size = int(batch_size/2)
-
+    conn.close()
             
 def convnet_model_():
     vgg_model = VGG16(weights=None, include_top=False)
