@@ -1,4 +1,6 @@
 import numpy as np
+import logging
+logging.getLogger('tensorflow').disabled = True
 from keras.applications.vgg16 import VGG16
 from keras.backend import l2_normalize
 from keras.layers import *
@@ -16,6 +18,7 @@ import json
 import gc
 from .SceneClassification import get_image_scene
 import sqlite3
+from tqdm import tqdm
 
 def loadData(model_name, img_directory, mydb):
     
@@ -40,7 +43,10 @@ def loadData(model_name, img_directory, mydb):
                 data = np.empty((batch_size, 224, 224, 3), dtype=np.float64)
                 cur_image_index = image_index
                 # iterate over images in a single batch
-                for j in range(batch_size):
+                print("Iteration ", i, " / ", batch_len)
+                print("*******************************")
+                print("Embedding generation forward pass")
+                for j in tqdm(range(batch_size)):
                     img_path = images[image_index]
                     image_arr = load_img(img_path)
                     image_arr = img_to_array(image_arr).astype("float64")
@@ -51,7 +57,10 @@ def loadData(model_name, img_directory, mydb):
                 embeddings = generateEmbeddings(model_name, data).tolist()
                 values = []
                 # prepare values for insert query
-                for index, embedding in enumerate(embeddings):
+                print("*******************************")
+                print("Storing embedding in the DB")
+                index = 0
+                for embedding in tqdm(embeddings):
                     embedStr = json.dumps(embedding)
                     imagePath = images[cur_image_index + index]
                     scene_type = ''
@@ -62,9 +71,11 @@ def loadData(model_name, img_directory, mydb):
                         pass
                     val = (imagePath, embedStr, scene_type)
                     values.append(val)
+                    index += 1
                 sql = "INSERT INTO metadata (image_path, embedding, scene_type) values (?,?,?)"
                 conn.executemany(sql, values)
                 conn.commit()
+                print("*******************************")
             canAlloc = True
         except MemoryError:
             batch_size = int(batch_size/2)

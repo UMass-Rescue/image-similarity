@@ -8,22 +8,15 @@ def generateEmbeddings(model_name, img_directory, mydb):
     image_similarity.loadData(model_name, img_directory, mydb)
     print(time.time() - start_time)
 
-ap = argparse.ArgumentParser()
+file = open("path_setup.txt", "r")
+path_dict = dict()
+for line in file:
+    line = line.rstrip('\n')
+    path_str = line.split('=')
+    path_dict[path_str[0]] = path_str[1]
+print(path_dict)
+db_path = path_dict['db_path']
+model_path = path_dict['model_path']
+img_directory = path_dict['img_directory']
 
-ap.add_argument("-m", "--model_path", required=True,
-    help="Absolute path to model which you want to use to generate embeddings")
-ap.add_argument("-ip", "--input_path", required=True,
-    help="Absolute Path to the directory of images for which you want to generate embeddings for similarity search")
-ap.add_argument("-dp", "--database_path", required=True,
-    help="Absolute Path to the sqlite database where you want to store the image embeddings")
-
-args = vars(ap.parse_args())
-
-if not os.path.exists(args['model_path']):
-    print ("The model to generate embeddings does not exist.")
-    exit()
-if not os.path.exists(args['input_path']):
-    print ("The input directory does not exist.")
-    exit()
-    
-generateEmbeddings(args['model_path'], args['input_path'], args['database_path'])
+generateEmbeddings(model_path, img_directory, db_path)
