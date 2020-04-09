@@ -48,6 +48,9 @@ Follow the below mentioned steps to setup the project:
 
 * You can have a look at the SQLite database which I ran for Places365 dataset [here](https://drive.google.com/file/d/1hgRKrvxeddJWqxb7wW8zKxQwBvX6lH3C/view).
 
+## Credits
+
+The pre-trained model and the code for similarity metric calculation has been adapted from https://github.com/USCDataScience/Image-Similarity-Deep-Ranking.
 
 ## Weekly Blog
 
