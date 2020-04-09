@@ -111,6 +111,11 @@ The pre-trained model and the code for similarity metric calculation has been ad
 
 **Week of 4/2/20 - 4/9/20 : 10**
 
+- Tested the image-similarity module on Dan’s machine with the help of Jagath.
+- Added few enhancements on Jagath’s suggestion (progress bar to generate_embedding script & reading paths from a file).
+- Added logs to capture essential information for benchmarking on Dan’s dataset.
+- Explored various MT models and built a simple pipeline which automatically detects language and converts it to target language.
+
 **Week of 4/9/20 - 4/16/20: 11**
 
 **Week of 4/16/20 - 4/23/20: 12**
