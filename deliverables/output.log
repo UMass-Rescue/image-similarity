@@ -1,0 +1,32 @@
+
+*************START**************
+
+Maximally allocated batch size is 42
+
+Batch length is 1
+
+Iteration 1 / 1
+
+*******************************
+
+A. Embedding generation forward pass
+
+ 1. Pre-processing time is 0.557867
+
+ 2. Embedding generation time is 12.295946
+
+*******************************
+
+B. Getting scene type information
+
+ 1. Total time taken for scene parsing is 12.916380
+
+*******************************
+
+C. Storing embedding in the DB
+
+ 1. Data insertion time is 0.000000
+
+*******************************
+
+Overall generation time was 25.798146

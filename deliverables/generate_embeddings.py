@@ -4,10 +4,8 @@ import argparse
 import os
 
 def generateEmbeddings(model_name, img_directory, mydb):
-    start_time = time.time()
     image_similarity.loadData(model_name, img_directory, mydb)
-    print(time.time() - start_time)
-
+    
 file = open("path_setup.txt", "r")
 path_dict = dict()
 for line in file:
