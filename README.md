@@ -117,6 +117,7 @@ The pre-trained model and the code for similarity metric calculation has been ad
 - Explored various MT models and built a simple pipeline which automatically detects language and converts it to target language.
 
 **Week of 4/9/20 - 4/16/20: 11**
+- *PASS WEEK*
 
 **Week of 4/16/20 - 4/23/20: 12**
 
