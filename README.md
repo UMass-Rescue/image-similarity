@@ -52,6 +52,20 @@ Follow the below mentioned steps to setup the project:
 
 The pre-trained model and the code for similarity metric calculation has been adapted from https://github.com/USCDataScience/Image-Similarity-Deep-Ranking.
 
+## Project Benchmarking
+
+The following table shows the time in took to run the generate_embeddings script on 36.5 images from the [Places365 dataset] (http://data.csail.mit.edu/places/places365/val_256.tar). 
+
+Run Configuration | Runtime (hours)
+--- | --- 
+16GB RAM, i7 Processor without GPU | 6
+64 GB RAM, Intel(R) Xeon(R) CPU with 12 GB titanx GPU | 4
+
+Average search query run time for this module is 2.37 seconds. The average was calculated by running 1000 random search queries for different values of K. 
+
+![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/query_run_time.png)
+
+
 ## Weekly Blog
 
 **Week of 1/30/20 - 2/6/20 : 1**
@@ -120,5 +134,8 @@ The pre-trained model and the code for similarity metric calculation has been ad
 - *PASS WEEK*
 
 **Week of 4/16/20 - 4/23/20: 12**
+
+- Did benchmarking for run time of generate embeddings script on 36.5K images from places dataset.
+- Also, perfomed benchmarking for the query run time, by running search for 100 random queries with different values of K.
 
 **Week of 4/23/20 - 4/30/20: 13**
