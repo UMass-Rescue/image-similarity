@@ -54,14 +54,14 @@ The pre-trained model and the code for similarity metric calculation has been ad
 
 ## Project Benchmarking
 
-The following table shows the time in took to run the generate_embeddings script on 36.5 images from the [Places365 dataset] (http://data.csail.mit.edu/places/places365/val_256.tar). 
+The following table shows the time in took to run the generate_embeddings script on 36.5K images from the [Places365 dataset] (http://data.csail.mit.edu/places/places365/val_256.tar). 
 
 Run Configuration | Runtime (hours)
 --- | --- 
 16GB RAM, i7 Processor without GPU | 6
 64 GB RAM, Intel(R) Xeon(R) CPU without GPU| 4
 
-Average search query run time for this module is 2.37 seconds. The average was calculated by running 1000 random search queries for different values of K. 
+Average search query run time for this module is 2.40 seconds. The average was calculated by running 100 random search queries for different values of K. 
 
 ![im2](https://github.com/UMass-Rescue/image-similarity/blob/master/output-samples/query_run_time.png)
 
