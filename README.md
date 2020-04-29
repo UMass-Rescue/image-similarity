@@ -59,7 +59,7 @@ The following table shows the time in took to run the generate_embeddings script
 Run Configuration | Runtime (hours)
 --- | --- 
 16GB RAM, i7 Processor without GPU | 6
-64 GB RAM, Intel(R) Xeon(R) CPU with 12 GB titanx GPU | 4
+64 GB RAM, Intel(R) Xeon(R) CPU without GPU| 4
 
 Average search query run time for this module is 2.37 seconds. The average was calculated by running 1000 random search queries for different values of K. 
 
@@ -139,3 +139,5 @@ Average search query run time for this module is 2.37 seconds. The average was c
 - Also, perfomed benchmarking for the query run time, by running search for 100 random queries with different values of K.
 
 **Week of 4/23/20 - 4/30/20: 13**
+
+- Preparing for final presentation.
