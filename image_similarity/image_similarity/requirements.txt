@@ -2,5 +2,5 @@ Keras==2.3.1
 scikit-image
 pytorch
 requests==2.23.0
-numpy==1.18.1
+numpy==1.22.0
 Pillow==6.1
